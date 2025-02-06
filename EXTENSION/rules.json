@@ -1,0 +1,160 @@
+[
+  {
+    "id": 1,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "regexFilter": ".*\\b(porn|xxx|adult|sex|nude|naked|escort)\\b.*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 2,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "regexFilter": ".*(\\.(xxx|sex|adult|porn)|sex\\-|porn\\-|adult\\-).*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 3,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "||xvideos*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 4,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "safe", "value": "strict" },
+              { "key": "safesearch", "value": "strict" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "||google.*/search",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 5,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "safe_search", "value": "strict" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "||bing.*/search",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 6,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "*gambling*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 7,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "urlFilter": "*betting*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 8,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "regexFilter": ".*(violence|gore|death|torture).*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 9,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "safe", "value": "1" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "||yahoo.*/search",
+      "resourceTypes": ["main_frame"]
+    }
+  },
+  {
+    "id": 10,
+    "priority": 1,
+    "action": { 
+      "type": "block"
+    },
+    "condition": {
+      "regexFilter": ".*(drugs|cocaine|heroin|marijuana).*",
+      "resourceTypes": ["main_frame", "sub_frame"]
+    }
+  },
+  {
+    "id": 11,
+    "priority": 2,
+    "action": {
+      "type": "redirect",
+      "redirect": {
+        "transform": {
+          "queryTransform": {
+            "addOrReplaceParams": [
+              { "key": "safe_mode", "value": "true" }
+            ]
+          }
+        }
+      }
+    },
+    "condition": {
+      "urlFilter": "||duckduckgo.*/",
+      "resourceTypes": ["main_frame"]
+    }
+  }
+]
